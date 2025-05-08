@@ -16,7 +16,7 @@ const App = () => {
   }
 
   const handleAddNumber = (number) => {
-    SetCurrentNumber(prev => `${prev === '0' ? '' : prev}${number}`)
+      SetCurrentNumber(prev => `${prev === '0' ? '' : prev}${number}`)
   }
 
   const handleSumNumber = (number) => {
@@ -28,6 +28,7 @@ const App = () => {
       const sum = Number(firstNumber) + Number(currentNumber)
       SetCurrentNumber(String(sum))
       setOperation('')
+      SetFirstNumber('0')
     }
   }
 
@@ -40,6 +41,7 @@ const App = () => {
       const minus = Number(firstNumber) - Number(currentNumber)
       SetCurrentNumber(String(minus))
       setOperation('')
+      SetFirstNumber('0')
     }
   }
 
@@ -52,10 +54,11 @@ const App = () => {
       const multiply = Number(firstNumber) * Number(currentNumber)
       SetCurrentNumber(String(multiply))
       setOperation('')
+      SetFirstNumber('0')
     }
   }
 
-   const handleDivisionNumber = (number) => {
+  const handleDivisionNumber = (number) => {
     if (firstNumber === '0') {
       SetFirstNumber(currentNumber);
       SetCurrentNumber('0')
@@ -65,6 +68,7 @@ const App = () => {
       const division = Number(firstNumber) / Number(currentNumber)
       SetCurrentNumber(String(division))
       setOperation('')
+      SetFirstNumber('0')
     }
   }
 
@@ -77,7 +81,7 @@ const App = () => {
         case '-':
           handleMinusNumber();
           break;
-         case '*':
+        case '*':
           handleMultiplyNumber();
           break;
         case '÷':
@@ -118,7 +122,7 @@ const App = () => {
           <Button label="+" onClick={handleSumNumber} />
         </Row>
         <Row>
-          <Button label="±" onClick={() => handleAddNumber('0')}/>
+          <Button label="±" disabled/>
           <Button label="0" onClick={() => handleAddNumber('0')}/>
           <Button label="." onClick={() => handleAddNumber('.')}/>
           <Button label="=" onClick={handleEquals}/>
