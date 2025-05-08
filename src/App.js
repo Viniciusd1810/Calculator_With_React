@@ -5,8 +5,8 @@ import { Container, Content, Row } from './styles'
 import { useState } from 'react'
 
 const App = () => {
-  const [currentNumber, SetCurrentNumber] = useState(0);
-  const [firstNumber, SetFirstNumber] = useState(0);
+  const [currentNumber, SetCurrentNumber] = useState('0');
+  const [firstNumber, SetFirstNumber] = useState('0');
   const [operation, setOperation] = useState('');
 
   const handleOnClear = () => {
