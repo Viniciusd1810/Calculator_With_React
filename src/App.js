@@ -72,6 +72,10 @@ const App = () => {
     }
   }
 
+  const handleBackspace = () => {
+    SetCurrentNumber(prev => prev.substring(0, prev.length - 1));
+};
+
   const handleEquals = () => {
     if (firstNumber !== '0' && operation !== '' && currentNumber !== '0') {
       switch (operation) {
@@ -99,7 +103,7 @@ const App = () => {
         <Input value={currentNumber}/>
         <Row>
           <Button label="CE" onClick={() => handleOnClear()} />
-          <Button label="←" onClick={() => handleOnClear()}/>
+          <Button label="←" onClick={() => handleBackspace()}/>
           <Button label="C" onClick={() => handleOnClear()}/>
           <Button label="÷" onClick={handleDivisionNumber}/>
         </Row>
