@@ -19,6 +19,14 @@ const App = () => {
       SetCurrentNumber(prev => `${prev === '0' ? '' : prev}${number}`)
   }
 
+  const handleAddDot = () => {
+    if (currentNumber.includes('.')) {
+      return currentNumber;
+    } else {
+      SetCurrentNumber(prev => `${prev === '0' ? '' : prev}.`)
+    }
+}
+
   const handleSumNumber = (number) => {
     if (firstNumber === '0') {
       SetFirstNumber(currentNumber);
@@ -102,9 +110,9 @@ const App = () => {
       <Content>
         <Input value={currentNumber}/>
         <Row>
-          <Button label="CE" onClick={() => handleOnClear()} />
-          <Button label="←" onClick={() => handleBackspace()}/>
-          <Button label="C" onClick={() => handleOnClear()}/>
+          <Button label="CE" onClick={handleOnClear}/>
+          <Button label="←" onClick={handleBackspace}/>
+          <Button label="C" onClick={handleOnClear}/>
           <Button label="÷" onClick={handleDivisionNumber}/>
         </Row>
         <Row>
@@ -128,7 +136,7 @@ const App = () => {
         <Row>
           <Button label="±" disabled/>
           <Button label="0" onClick={() => handleAddNumber('0')}/>
-          <Button label="." onClick={() => handleAddNumber('.')}/>
+          <Button label="." onClick={handleAddDot}/>
           <Button label="=" onClick={handleEquals}/>
         </Row>
       </Content>
